@@ -102,7 +102,7 @@ BEGIN
 	DECLARE @intId INT;
 	BEGIN TRY
 		BEGIN TRANSACTION 
-			SELECT @intId  = COUNT(ID) FROM TBLCARGO WHERE TRIM(UPPER(@strDescripcion)) = TRIM(UPPER(@strDescripcion));
+			SELECT @intId  = COUNT(ID) FROM TBLCARGO WHERE TRIM(UPPER(DESCRIPCION)) = TRIM(UPPER(@strDescripcion));
 			IF @intId > 0 
 			BEGIN
 				RAISERROR('Se encontró otro CARGO asociado a la descripción ingresada.', 11, 1);
@@ -130,7 +130,7 @@ BEGIN
 	DECLARE @intId INT;
 	BEGIN TRY
 		BEGIN TRANSACTION 
-			SELECT @intId  = COUNT(ID) FROM TBLGRUPO WHERE TRIM(UPPER(@strDescripcion)) = TRIM(UPPER(@strDescripcion));
+			SELECT @intId  = COUNT(ID) FROM TBLGRUPO WHERE TRIM(UPPER(DESCRIPCION)) = TRIM(UPPER(@strDescripcion));
 			IF @intId > 0 
 			BEGIN
 				RAISERROR('Se encontró otro GRUPO asociado a la descripción ingresada.', 11, 1);
@@ -158,7 +158,7 @@ BEGIN
 	DECLARE @intId INT;
 	BEGIN TRY
 		BEGIN TRANSACTION 
-			SELECT @intId  = COUNT(ID) FROM TBLDEPARTAMENTO WHERE TRIM(UPPER(@strDescripcion)) = TRIM(UPPER(@strDescripcion));
+			SELECT @intId  = COUNT(ID) FROM TBLDEPARTAMENTO WHERE TRIM(UPPER(DESCRIPCION)) = TRIM(UPPER(@strDescripcion));
 			IF @intId > 0 
 			BEGIN
 				RAISERROR('Se encontró otro DEPARTAMENTO asociado a la descripción ingresada.', 11, 1);
